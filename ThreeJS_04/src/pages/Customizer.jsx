@@ -13,7 +13,6 @@ import {
 } from "../config/constants";
 import { slideAnimation } from "../config/motion";
 import {
-  AIPicker,
   ColorPicker,
   Tab,
   CustomButton,
@@ -48,12 +47,7 @@ export default function Customizer() {
         return <ColorPicker />;
       case "aipicker":
         return (
-          <AIPicker
-            prompt={prompt}
-            setPrompt={setPrompt}
-            generatingImg={generatingImg}
-            handleSubmit={handleSubmit}
-          />
+          <div className="aipicker-container"><p>Work In Progress... Try again later please😉🙇</p></div>
         );
       case "filepicker":
         return <FilePicker file={file} setFile={setFile} readFile={readFile} />;
@@ -63,28 +57,30 @@ export default function Customizer() {
   };
 
   // handle submit
-  const handleSubmit = async (type) => {
-    if (!prompt) return alert("Please enter a prompt");
+  // const handleSubmit = async (type) => {
+  //   if (!prompt) return alert("Please enter a prompt");
 
-    try {
-      // call our backend
-      setGeneratingImg(true);
-      const response = await fetch("http://localhost:8080/api/v1/dalle", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ prompt }),
-      });
-      const data = await response.json();
-      handleDecals(type, `data:image/png;base64,${data.photo}`);
-    } catch (err) {
-      console.log(err);
-    } finally {
-      setGeneratingImg(false);
-      setActiveEditorTab("");
-    }
-  };
+  //   try {
+  //     // call our backend
+  //     setGeneratingImg(true);
+  //     const response = await fetch('https://endearing-bublanina-15ddf7.netlify.app/.netlify/functions/api/dalle', {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify({ prompt }),
+  //     });
+  //     const data = await response.json();
+  //     if (data.photo){
+  //       handleDecals(type, `data:image/png;base64,${data.photo}`);
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   } finally {
+  //     setGeneratingImg(false);
+  //     setActiveEditorTab("");
+  //   }
+  // };
 
   // hande shoe change
   const handleShoeChange = (shoe) => {
