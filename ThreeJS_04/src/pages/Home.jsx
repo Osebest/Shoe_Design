@@ -22,7 +22,7 @@ export default function Home() {
       {snap.intro && (
         <motion.section className="home" {...slideAnimation("left")}>
           <motion.header {...slideAnimation("down")}>
-            <div className="flex items-center gap-52 xl:gap-80">
+            <div className="flex items-center gap-32 sm:gap-40 xl:gap-80 ">
               <img
                 src="./threejs.png"
                 alt="logo"
@@ -30,7 +30,7 @@ export default function Home() {
               />
               <a
                 href="https://twitter.com/Osebest7"
-                className="text-xl font-semibold text-red-600 p-2 glassmorphism rounded-lg border hover:shadow-lg transition duration-300 ease-in-out"
+                className="text-md  xl:text-xl font-semibold text-red-600 p-2 glassmorphism rounded-lg border hover:shadow-lg transition duration-300 ease-in-out"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -48,12 +48,12 @@ export default function Home() {
               {...headContentAnimation}
               className="flex flex-col gap-5"
             >
-              <p className="max-w-md font-normal text-gray-600 text-base">
+              <p className="max-w-md font-normal text-gray-600 px-2 md:text-base">
                 Create your unique and exclusive shoe skin with our brand-new 3D
                 customization tool. <strong>Unleash your imagination </strong>{" "}
                 and define your own style.
               </p>
-              <p className="font-semibold text-red-600">
+              <p className="font-semibold text-red-600 px-2">
                 Don't Forget to drag and rotate to see it's full glory
               </p>
               <CustomButton
