@@ -3,6 +3,8 @@ import serverless from "serverless-http";
 import cors from "cors";
 import * as dotenv from "dotenv";
 
+import dalleRoutes from "./routes/dalle.routes.js";
+
 dotenv.config();
 
 // Create an instance of the Express app
@@ -25,6 +27,7 @@ router.get("/", (req, res) => {
 
 // Use the router to handle requests to the `/.netlify/functions/api` path
 app.use(`/.netlify/functions/api`, router);
+app.use(`/.netlify/functions/api/dalle`, dalleRoutes);
 
 // Export the app and the serverless function
 export const handler = serverless(app);
