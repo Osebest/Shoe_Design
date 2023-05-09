@@ -1,8 +1,19 @@
-const express = require("express");
-const serverless = require("serverless-http");
+import express from "express";
+import serverless from "serverless-http";
+import * as dotenv from 'dotenv';
+import cors from 'cors';
+
+import dalleRoutes from "./routes/dalle.routes.js";
+
+dotenv.config();
 
 // Create an instance of the Express app
 const app = express();
+
+app.use(cors());
+app.use(express.json({ limit: '50mb' }));
+
+app.use('/.netlify/functions/api/dalle', dalleRoutes);
 
 // Create a router to handle routes
 const router = express.Router();
